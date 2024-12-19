@@ -21,4 +21,4 @@ Welcome to the **Garage Management System**! This is a simple car management pro
 2. Open a terminal/command prompt and navigate to the project directory.
 3. Run the program by executing:
    ```bash
-   python garage.py
+   app .py

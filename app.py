@@ -38,13 +38,17 @@ def addCar():
 
 def deleteCar():
     displayCars()
-    carToDelete = int(input("Select a car to delete: (index)"))
-
-    print(f"Car: {cars[carToDelete]['brand']},{cars[carToDelete]['model']},{cars[carToDelete]['color']} has been deleted! ")
-
-    cars.pop(carToDelete)
-    displayCars()
-    saveGarage()
+    try:
+        carToDelete = int(input("Select a car to delete: (index)"))
+        if carToDelete in cars:
+            print(f"Car: {cars[carToDelete]['brand']},{cars[carToDelete]['model']},{cars[carToDelete]['color']} has been deleted! ")
+            cars.pop(carToDelete)
+            displayCars()
+            saveGarage()
+        else:
+            print(f"Car '{carToDelete}' was not found!")
+    except ValueError:
+        print(f"{carToDelete} is invalid!, Please select a valid index from the list!")
   
     
 def displayCars():
@@ -55,10 +59,15 @@ def displayCars():
         print(f"{(index)}: {car['brand']},{car['model']},{car['color']} ")
 
 def findCar():
-    
-    carToFind = int(input("Select a car to find: (index)"))
-   
-    print(f"Found car: {cars[carToFind]['brand']},{cars[carToFind]['model']},{cars[carToFind]['color']}")
+    try:
+        carToFind = int(input("Select a car to find: (index)"))
+        if cars[carToFind] in cars:
+            print(f"Found car: {cars[carToFind]['brand']},{cars[carToFind]['model']},{cars[carToFind]['color']}")
+                
+    except ValueError:
+        print("invalid!, Please select a valid index from the list!")
+    except IndexError:
+        print("Car was not found!")
 
 def saveGarage():
     with open(FILENAME, 'w+')as f:
