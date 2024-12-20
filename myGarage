@@ -1,1 +1,12 @@
-[{'brand': 'hyundai', 'model': '2022', 'color': 'red'}, {'brand': 'toyota', 'model': '2019', 'color': 'gray'}]
+[
+    {
+        "brand": "toyota",
+        "model": "2019",
+        "color": "red"
+    },
+    {
+        "brand": "suzuki",
+        "model": "2010",
+        "color": "gray"
+    }
+]
